@@ -9,13 +9,15 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 
 import { MaterialModule } from '../shared/material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconRegistry, MatIconModule } from '@angular/material/icon';
 import { NewContactDialogComponent } from './components/new-contact-dialog/new-contact-dialog.component';
 import { NotesComponent } from './components/notes/notes.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 const routes: Routes = [
@@ -32,15 +34,9 @@ const routes: Routes = [
     ContactmanagerAppComponent, 
     ToolbarComponent, 
     MainContentComponent, 
-    SidenavComponent
-    //NewContactDialogComponent
-  ],
-  exports:[
-    ContactmanagerAppComponent, 
-    ToolbarComponent, 
-    MainContentComponent, 
-    SidenavComponent
-    //NewContactDialogComponent
+    SidenavComponent,
+    NewContactDialogComponent, 
+    NotesComponent
   ],
   imports: [
     CommonModule,
@@ -48,15 +44,16 @@ const routes: Routes = [
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
-    MatIconRegistry,
-    MatIconModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     RouterModule.forChild(routes)
   ],
   providers: [
     UserService
   ],
   entryComponents:[
-   // NewContactDialogComponent
+    NewContactDialogComponent
   ]
 })
 export class ContactmanagerModule { }
